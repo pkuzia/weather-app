@@ -1,0 +1,64 @@
+PODS:
+  - Alamofire (4.2.0)
+  - Kingfisher (3.13.1)
+  - Moya (8.0.0):
+    - Moya/Core (= 8.0.0)
+  - Moya-ObjectMapper (2.4):
+    - Moya-ObjectMapper/Core (= 2.4)
+  - Moya-ObjectMapper/Core (2.4):
+    - Moya (~> 8.0)
+    - ObjectMapper (~> 2.2)
+  - Moya/Core (8.0.0):
+    - Alamofire (~> 4.2.0)
+    - Result (~> 3.1.0)
+  - ObjectMapper (2.2.9)
+  - ObjectMapper+Realm (0.5):
+    - ObjectMapper
+    - RealmSwift
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
+  - Result (3.1.0)
+  - SwifterSwift (4.0.1):
+    - SwifterSwift/AppKit (= 4.0.1)
+    - SwifterSwift/CoreGraphics (= 4.0.1)
+    - SwifterSwift/CoreLocation (= 4.0.1)
+    - SwifterSwift/Foundation (= 4.0.1)
+    - SwifterSwift/SwiftStdlib (= 4.0.1)
+    - SwifterSwift/UIKit (= 4.0.1)
+  - SwifterSwift/AppKit (4.0.1)
+  - SwifterSwift/CoreGraphics (4.0.1)
+  - SwifterSwift/CoreLocation (4.0.1)
+  - SwifterSwift/Foundation (4.0.1)
+  - SwifterSwift/SwiftStdlib (4.0.1)
+  - SwifterSwift/UIKit (4.0.1)
+  - SwiftLint (0.23.1)
+
+DEPENDENCIES:
+  - Kingfisher (~> 3.0)
+  - Moya (= 8.0.0)
+  - Moya-ObjectMapper
+  - ObjectMapper+Realm
+  - Realm (~> 2.1)
+  - RealmSwift
+  - SwifterSwift
+  - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
+  Moya: 850a166ab8241bd1c1cea6dbe012e3a2ad62944a
+  Moya-ObjectMapper: 5807a3f30fea8fd07a9fc0e324cda1655e1602ab
+  ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
+  ObjectMapper+Realm: 3188789fb77c189c7a83cb625333a607eb61a08f
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
+  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  SwifterSwift: 5f406a5f831343312d6d5b34282b57ef3f52c40b
+  SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
+
+PODFILE CHECKSUM: 058deff8646d0ba6a8518e168f0aa79a186b5b49
+
+COCOAPODS: 1.2.0
