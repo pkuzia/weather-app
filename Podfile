@@ -11,11 +11,11 @@ pod 'SwiftLint'
 pod 'Kingfisher', '~> 3.0'
 
 # # DB & Networking
+pod 'Moya', '~> 8.0'
 pod 'Realm', '~> 2.1'
 pod 'Moya-ObjectMapper'
 pod 'ObjectMapper+Realm'
 pod 'RealmSwift'
-pod 'Moya', '8.0.0'
 
 target 'WeatherApp' do
 

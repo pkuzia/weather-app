@@ -7,30 +7,16 @@
 //
 
 import UIKit
-import RealmSwift
 import ObjectMapper
 import Realm
 
-public class BaseModel: Object, Mappable {
+public class BaseModel: Mappable {
     
-    var objects: List<BaseModel>?
-    
-    required public init?(map: Map) {
-        super.init()
-    }
-    
-    required public init() {
-        super.init()
-    }
-    
-    required public init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
-    
-    required public init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
+    public required init?(map: Map) {
+        
     }
     
     public func mapping(map: Map) {
+        
     }
 }

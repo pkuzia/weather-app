@@ -8,12 +8,15 @@
 
 import Foundation
 import RealmSwift
+import Moya
+import Result
+import Moya_ObjectMapper
 
 public struct FetchResult {
     let error: FetchError?
 }
 
-enum FetchError: Error {
+enum FetchError: Swift.Error {
     case connectionError
     case parseError
     case databaseError
@@ -38,23 +41,39 @@ enum FetchError: Error {
 
 class BaseService {
     
-    func writeArray<T: BaseModel>(fetchResult: FetchResult, array: [T]?,
-                    completionHandler: @escaping (FetchResult, [T]?) -> ()) {
-        
-        if fetchResult.error != nil {
-            completionHandler(fetchResult, nil)
-        } else if let items = array {
+    func handleMoyaResultWithMappingObject<T: BaseModel>(result: Result<Moya.Response, MoyaError>,
+                                                                 completionHandler: @escaping (FetchResult, T?) -> ()) {
+        switch result {
+        case let .success(response):
             do {
-                let realm = try Realm()
-                try realm.write {
-                    for item in items {
-                        realm.add(item, update: true)
-                    }
-                    completionHandler(fetchResult, array)
+                let validResponse = try response.filterSuccessfulStatusCodes()
+                let response: T? = try validResponse.mapObject(T.self)
+                
+                if let response = response {
+                    completionHandler(FetchResult(error: nil), response)
+                } else {
+                    completionHandler(FetchResult(error: .parseError), nil)
                 }
-            } catch _ {
-                completionHandler(FetchResult(error: .databaseError), array)
+            } catch let error as MoyaError {
+                switch error {
+                case .statusCode(_): do {
+                        completionHandler(FetchResult(error: .connectionError), nil)
+                    }
+                case .jsonMapping(_): do {
+                    completionHandler(FetchResult(error: .parseError), nil)
+                    }
+                default:
+                    completionHandler(FetchResult(error: .unknownError), nil)
+                }
             }
+            catch {
+                completionHandler(FetchResult(error: .unknownError), nil)
+            }
+        case let .failure(error):
+            guard let error = error.errorDescription else {
+                break
+            }
+            completionHandler(FetchResult(error: .errorMessage(error.description)), nil)
         }
     }
 }
