@@ -19,6 +19,7 @@ class WeatherScreenViewModel: BaseViewModel {
     // MARK: - View Model Data
     
     let weatherService = WeatherService()
+    let cellID = "WeatherCell"
     
     weak var delegate: WeatherScreenViewModelDelegate?
     

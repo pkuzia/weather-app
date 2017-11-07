@@ -73,7 +73,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="conditionImage" destination="Pfh-Va-LG4" id="fG3-pN-wAA"/>
-                                            <outlet property="conditionItem" destination="Pfh-Va-LG4" id="6bF-YF-E62"/>
                                             <outlet property="temperature" destination="Brl-0s-fkE" id="Cjb-Ty-Fhi"/>
                                         </connections>
                                     </tableViewCell>

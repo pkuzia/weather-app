@@ -19,7 +19,6 @@ class WeatherScreenViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     let weatherScreenViewModel = WeatherScreenViewModel()
     
     // MARK: - View Lifecycle
@@ -44,15 +43,38 @@ class WeatherScreenViewController: BaseViewController {
     // MARK: - Appearance
     
     func initUI() {
-        weatherScreenViewModel.fetchWeatherForecast { result in
-            
-        }
+        initTableView()
+        initTopView()
+        fetchData()
     }
     
     // MARK: - User Interaction
     
     // MARK: - Additional Helpers
     
+    fileprivate func initTopView() {
+        if let cityNameText = weatherScreenViewModel.weatherResponse?.location?.name {
+            cityName.attributedText = StyleKit.attributedText(text: cityNameText, attribute: .weatherScreenTopViewCityName)
+        }
+    }
+    
+    fileprivate func initTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    fileprivate func fetchData() {
+        weatherScreenViewModel.fetchWeatherForecast { result in
+            if result.error == nil {
+                self.refereshWeatherScreen()
+            }
+        }
+    }
+    
+    fileprivate func refereshWeatherScreen() {
+        self.initTopView()
+        self.tableView.reloadData()
+    }
 }
 
 // MARK: - WeatherScreenViewModelDelegate
@@ -61,3 +83,24 @@ extension WeatherScreenViewController: WeatherScreenViewModelDelegate {
     
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension WeatherScreenViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let forecastWeather = weatherScreenViewModel.weatherResponse?.forecastWeather else {
+            return 0
+        }
+        return forecastWeather.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let weatherItemCell = tableView.dequeueReusableCell(withIdentifier: weatherScreenViewModel.cellID) as? WeatherItemCell else {
+            return UITableViewCell()
+        }
+        if let forecastWeatherItem = weatherScreenViewModel.weatherResponse?.forecastWeather?.item(at: indexPath.row) {
+            weatherItemCell.initCellFromWeatherItem(weatherItem: forecastWeatherItem)
+        }
+        return weatherItemCell
+    }
+}

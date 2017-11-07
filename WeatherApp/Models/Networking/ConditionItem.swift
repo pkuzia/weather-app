@@ -12,11 +12,11 @@ import RealmSwift
 
 public class ConditionItem: BaseModel {
     
-    var text: String?
+    var conditionText: String?
     var icon: String?
     
     override public func mapping(map: Map) {
         icon <- map["icon"]
-        text <- map["text"]
+        conditionText <- map["text"]
     }
 }
