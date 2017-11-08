@@ -26,6 +26,7 @@
 		975A8EAB1FAF6C490015CA4B /* ConditionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A8EAA1FAF6C490015CA4B /* ConditionItem.swift */; };
 		977ACBCE1FAF99BC004E0446 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977ACBCC1FAF7087004E0446 /* WeatherRequest.swift */; };
 		977ACBCF1FAF9BF0004E0446 /* BaseRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977ACBCD1FAF709E004E0446 /* BaseRequestModel.swift */; };
+		97AB79F31FB305D1007B34D5 /* WeatherItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB79F21FB305D1007B34D5 /* WeatherItemViewModel.swift */; };
 		97D5790F1FB19FBB00D3E1EF /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D5790E1FB19FBB00D3E1EF /* StyleKit.swift */; };
 		C4A225093C84F7D26870735F /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AFA948CCFBA1ACE329376A6 /* Pods_WeatherApp.framework */; };
 		C895C675F28A026433782533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2869AB6BD04057FAF40BBE /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		975A8EAA1FAF6C490015CA4B /* ConditionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionItem.swift; sourceTree = "<group>"; };
 		977ACBCC1FAF7087004E0446 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		977ACBCD1FAF709E004E0446 /* BaseRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestModel.swift; sourceTree = "<group>"; };
+		97AB79F21FB305D1007B34D5 /* WeatherItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItemViewModel.swift; sourceTree = "<group>"; };
 		97D5790E1FB19FBB00D3E1EF /* StyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		97FD59B3120DB15AED9FDB12 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D65D25EE57EE25786C4874B /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				975A8E9C1FAF52FE0015CA4B /* WeatherScreenViewModel.swift */,
+				97AB79F21FB305D1007B34D5 /* WeatherItemViewModel.swift */,
 			);
 			path = WeatherScreen;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				F05CEAE121C2E46E5B553C60 /* BaseViewModel.swift in Sources */,
 				97D5790F1FB19FBB00D3E1EF /* StyleKit.swift in Sources */,
 				CC18872DFC68B0E58D4298BD /* BaseViewController.swift in Sources */,
+				97AB79F31FB305D1007B34D5 /* WeatherItemViewModel.swift in Sources */,
 				977ACBCE1FAF99BC004E0446 /* WeatherRequest.swift in Sources */,
 				C895C675F28A026433782533 /* AppDelegate.swift in Sources */,
 				975A8EA61FAF5B990015CA4B /* ForecastWeatherItem.swift in Sources */,
@@ -497,6 +501,7 @@
 				DEVELOPMENT_TEAM = E2KG6LTEW8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "WeatherApp/Resources/Other-Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -504,6 +509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mobile.iterato.rs.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -519,6 +525,7 @@
 				DEVELOPMENT_TEAM = E2KG6LTEW8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "WeatherApp/Resources/Other-Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -526,6 +533,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mobile.iterato.rs.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

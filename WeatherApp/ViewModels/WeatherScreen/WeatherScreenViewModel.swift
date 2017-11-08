@@ -19,7 +19,9 @@ class WeatherScreenViewModel: BaseViewModel {
     // MARK: - View Model Data
     
     let weatherService = WeatherService()
+    let weatherItemCellHeight: CGFloat = 50
     let cellID = "WeatherCell"
+    let backgroundName = "WeatherAppBG"
     
     weak var delegate: WeatherScreenViewModelDelegate?
     

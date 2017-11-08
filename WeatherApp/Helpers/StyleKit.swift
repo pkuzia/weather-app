@@ -11,7 +11,7 @@ import UIKit
 import SwifterSwift
 
 public enum Attribute {
-    case navBarTitle, weatherScreenTopViewCityName, weatherScreenTopViewTemperature
+    case navBarTitle, weatherScreenTopViewCityName, weatherScreenTopViewTemperature, weatherScreenCellTemperature, weatherScreenCellDayName
 }
 
 public enum Color {
@@ -26,11 +26,15 @@ class StyleKit {
         var attributedDictionary = [String: AnyObject]()
         switch attribute {
         case .navBarTitle:
-            attributedDictionary = attributedText(color: UIColor.black, font: UIFont.systemFont(ofSize: 15))
+            attributedDictionary = attributedText(color: UIColor.white, font: UIFont.systemFont(ofSize: 15))
         case .weatherScreenTopViewCityName:
-            attributedDictionary = attributedText(color: UIColor.black, font: UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight))
+            attributedDictionary = attributedText(color: UIColor.white, font: UIFont.systemFont(ofSize: 36, weight: UIFontWeightLight))
         case .weatherScreenTopViewTemperature:
-            attributedDictionary = attributedText(color: UIColor.black, font: UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular))
+            attributedDictionary = attributedText(color: UIColor.white, font: UIFont.systemFont(ofSize: 30, weight: UIFontWeightLight))
+        case .weatherScreenCellTemperature:
+            attributedDictionary = attributedText(color: UIColor.white, font: UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight))
+        case .weatherScreenCellDayName:
+            attributedDictionary = attributedText(color: UIColor.white, font: UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight))
         }
         return NSAttributedString(string: text, attributes: attributedDictionary)
     }
